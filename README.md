@@ -1,8 +1,6 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
- 
 <html>
 <head>
-    <title>Student Form</title>
+    <title>Result</title>
  
     <style>
         body {
@@ -22,35 +20,35 @@
             width: 320px;
             border-radius: 10px;
             box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+            text-align: center;
         }
  
         h2 {
-            text-align: center;
             margin-bottom: 20px;
         }
  
-        label {
+        .detail {
+            text-align: left;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+ 
+        .label {
             font-weight: bold;
         }
  
-        input, select {
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-            margin-bottom: 15px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
- 
-        input[type="submit"] {
-            background-color: green;
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 15px;
+            background-color:red;
             color: white;
-            border: none;
-            cursor: pointer;
+            text-decoration: none;
+            border-radius: 5px;
         }
  
-        input[type="submit"]:hover {
-            background-color: darkgreen;
+        .btn:hover {
+            background-color: #0056b3;
         }
     </style>
  
@@ -59,26 +57,31 @@
  
 <div class="container">
  
-<h2>Student Registration Form</h2>
+      <h2> Student Details</h2>
+        <div class="detail">
+            <span class="label">Name:</span>${student.name}
+        </div>  
  
-  <form:form action="result" method="post" modelAttribute="student">
-    <label>Name:</label>
-     <form:input path="name"/>
-     
-     <label>Name:</label>
-     <form:input path="email"/>
-     
-       <label>Course:</label>
-         <form:select path="course">
-            <form:option value="Java" label="Java"/>
-             <form:option value="Spring" label="Spring"/>
-              <form:option value="Hibernate" label="Hibernate"/>
-         </form:select>
-         
-         <input type="submit" value="Register">
-  </form:form>
+         <div class="detail">
+            <span class="label">Course:</span>${student.course}
+        </div>  
+        
+        <div class="detail">
+            <span class="label">Email:</span>${student.email}
+        </div>  
+        
+        <a href="/form" class="btn">Back to Form</a>
 </div>
  
 </body>
 </html>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
