@@ -1,17 +1,47 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Result</title>
-</head>
-<body bgcolor="aqua">
+package com.seed.controller;
  
-     <h1>Entered Data of Student</h1>
-<h2>
-    Name = ${name}  <br>
-    Email = ${email}  <br>
-    Course = ${course}<br>
-</h2>     
-</body>
-</html>
+import org.springframework.stereotype.Controller;
+
+import org.springframework.ui.Model;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import org.springframework.web.bind.annotation.RequestParam;
+ 
+@Controller
+
+public class StudentController {
+
+    @RequestMapping("/form")
+
+     public String loadForm()
+
+     {
+
+    	 return "form";
+
+     }
+
+    @RequestMapping("/result")
+
+    public String handleForm(@RequestParam("name") String name,
+
+    		                      @RequestParam("email") String email,
+
+    		                      @RequestParam("course") String course,Model model)
+
+    {
+
+    	model.addAttribute("name",name);
+
+    	model.addAttribute("email",email);
+
+    	model.addAttribute("course",course);
+
+   	    return "result";
+
+    }
+
+
+}
  
