@@ -1,24 +1,47 @@
-<body>
-  <center>    
-    <h2>Student Registration Form</h2>
-  <br>
-    <form action="result" autocomplete="off">
-    <fieldset>
-      <legend>Registration</legend>
-      Name: <input type="text" name="name" autocomplete="off"><br><br>
-      Email: <input type="text" name="email" autocomplete="off"><br><br>
-      
-     Course:
-      <select name="course">
-         <option value="Java">Java</option>
-         <option value="Spring">Spring</option>
-         <option value="Hibernate">Hibernate</option>
-      </select>  <br><br>
-      
-      <input type="submit" value="Register">
-      </fieldset>
-    </form>    
-    
-</center>   
-</body>
+package com.seed.controller;
+ 
+import org.springframework.stereotype.Controller;
+
+import org.springframework.ui.Model;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import org.springframework.web.bind.annotation.RequestParam;
+ 
+@Controller
+
+public class StudentController {
+
+    @RequestMapping("/form")
+
+     public String loadForm()
+
+     {
+
+    	 return "form";
+
+     }
+
+    @RequestMapping("/result")
+
+    public String handleForm(@RequestParam("name") String name,
+
+    		                      @RequestParam("email") String email,
+
+    		                      @RequestParam("course") String course,Model model)
+
+    {
+
+    	model.addAttribute("name",name);
+
+    	model.addAttribute("email",email);
+
+    	model.addAttribute("course",course);
+
+   	    return "result";
+
+    }
+
+
+}
  
