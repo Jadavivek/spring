@@ -1,14 +1,24 @@
-	<!-- Source: https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jasper -->
-	<dependency>
-	    <groupId>org.apache.tomcat</groupId>
-	    <artifactId>tomcat-jasper</artifactId>
-	    <version>11.0.18</version>
-	    <scope>compile</scope>
-	</dependency>
-	
-		<dependency>
-		    <groupId>javax.servlet</groupId>
-		    <artifactId>jstl</artifactId>
-		    <version>1.2</version>
-		</dependency>
+<body>
+  <center>    
+    <h2>Student Registration Form</h2>
+  <br>
+    <form action="result" autocomplete="off">
+    <fieldset>
+      <legend>Registration</legend>
+      Name: <input type="text" name="name" autocomplete="off"><br><br>
+      Email: <input type="text" name="email" autocomplete="off"><br><br>
+      
+     Course:
+      <select name="course">
+         <option value="Java">Java</option>
+         <option value="Spring">Spring</option>
+         <option value="Hibernate">Hibernate</option>
+      </select>  <br><br>
+      
+      <input type="submit" value="Register">
+      </fieldset>
+    </form>    
+    
+</center>   
+</body>
  
