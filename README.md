@@ -1,31 +1,14 @@
-//	@RequestMapping("/home2")
-//	  public String home2(String name,HttpSession session)
-//	{
-//		System.out.println("welcome"+ name);
-//		
-//		session.setAttribute("name", name);
-//	  	return "home2";   
-//	  }
+	<!-- Source: https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jasper -->
+	<dependency>
+	    <groupId>org.apache.tomcat</groupId>
+	    <artifactId>tomcat-jasper</artifactId>
+	    <version>11.0.18</version>
+	    <scope>compile</scope>
+	</dependency>
 	
-	
-	//@RequestParam -used to get values from the URL(Query Paramter)
-//	@RequestMapping("/home2")
-//	public String home2(@RequestParam("name") String myName,HttpSession session)
-//	{
-//		System.out.println("welcome"+ myName);
-//		
-//		session.setAttribute("name", myName);
-//	  	return "home2";   
-//	 }
-	
-	
-	//passing data to view(jsp) using Model only
-	@RequestMapping("/home2")
-	public String home2(@RequestParam("name") String name,Model model)
-	{
-		System.out.println("welcome"+ name);
-		
-		model.addAttribute("username",name);   //setting data to Model insted of session
-	  	return "home2";   
-	 }
+		<dependency>
+		    <groupId>javax.servlet</groupId>
+		    <artifactId>jstl</artifactId>
+		    <version>1.2</version>
+		</dependency>
  
