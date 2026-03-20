@@ -1,34 +1,48 @@
-package com.seed.model;
+package com.seed.controller;
  
-public class Student {
+import com.seed.model.Student;
+
+import org.springframework.stereotype.Controller;
+
+import org.springframework.ui.Model;
+
+import org.springframework.web.bind.annotation.ModelAttribute;
+
+import org.springframework.web.bind.annotation.RequestMapping;
  
-    private String name;
-    private String email;
-    private String course;
+@Controller
+
+public class StudentController {
  
-    // Getters & Setters
-    public String getName() {
-        return name;
+    // Load form
+
+    @RequestMapping("/form")
+
+    public String loadForm(Model model) {
+
+        model.addAttribute("student", new Student()); // important
+
+        return "form";
+
     }
  
-    public void setName(String name) {
-        this.name = name;
+  
+
+    //Handle form
+
+    @RequestMapping("/result")
+
+    public String handleForm(@ModelAttribute("student") Student student) {
+
+    	System.out.println(student.getName());
+
+    	System.out.println(student.getEmail());
+
+    	System.out.println(student.getCourse());
+
+        return "result";
+
     }
- 
-    public String getEmail() {
-        return email;
-    }
- 
-    public void setEmail(String email) {
-        this.email = email;
-    }
- 
-    public String getCourse() {
-        return course;
-    }
- 
-    public void setCourse(String course) {
-        this.course = course;
-    }
+
 }
  
