@@ -1,47 +1,34 @@
-package com.seed.controller;
+package com.seed.model;
  
-import org.springframework.stereotype.Controller;
-
-import org.springframework.ui.Model;
-
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RequestParam;
+public class Student {
  
-@Controller
-
-public class StudentController {
-
-    @RequestMapping("/form")
-
-     public String loadForm()
-
-     {
-
-    	 return "form";
-
-     }
-
-    @RequestMapping("/result")
-
-    public String handleForm(@RequestParam("name") String name,
-
-    		                      @RequestParam("email") String email,
-
-    		                      @RequestParam("course") String course,Model model)
-
-    {
-
-    	model.addAttribute("name",name);
-
-    	model.addAttribute("email",email);
-
-    	model.addAttribute("course",course);
-
-   	    return "result";
-
+    private String name;
+    private String email;
+    private String course;
+ 
+    // Getters & Setters
+    public String getName() {
+        return name;
     }
-
-
+ 
+    public void setName(String name) {
+        this.name = name;
+    }
+ 
+    public String getEmail() {
+        return email;
+    }
+ 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+ 
+    public String getCourse() {
+        return course;
+    }
+ 
+    public void setCourse(String course) {
+        this.course = course;
+    }
 }
  
