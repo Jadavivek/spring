@@ -1,24 +1,17 @@
-<body>
-  <center>    
-    <h2>Student Registration Form</h2>
-  <br>
-    <form action="result" autocomplete="off">
-    <fieldset>
-      <legend>Registration</legend>
-      Name: <input type="text" name="name" autocomplete="off"><br><br>
-      Email: <input type="text" name="email" autocomplete="off"><br><br>
-      
-     Course:
-      <select name="course">
-         <option value="Java">Java</option>
-         <option value="Spring">Spring</option>
-         <option value="Hibernate">Hibernate</option>
-      </select>  <br><br>
-      
-      <input type="submit" value="Register">
-      </fieldset>
-    </form>    
-    
-</center>   
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+</head>
+<body bgcolor="aqua">
+ 
+     <h1>Entered Data of Student</h1>
+<h2>
+    Name = ${name}  <br>
+    Email = ${email}  <br>
+    Course = ${course}<br>
+</h2>     
 </body>
+</html>
  
