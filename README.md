@@ -1,84 +1,47 @@
-package com.seed.entity;
+package com.seed.service;
  
-import jakarta.persistence.Entity;
-
-import jakarta.persistence.Id;
+import java.util.List;
  
-@Entity
-
-public class Student {
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
  
-    @Id
-
-    private int id;
-
-    private String name;
-
-    private String email;
-
-    private String course;
+import com.seed.entity.Student;
+import com.seed.repository.StudentRepository;
  
-    public Student() {}
- 
-    public Student(int id, String name, String email, String course) {
-
-        this.id = id;
-
-        this.name = name;
-
-        this.email = email;
-
-        this.course = course;
-
+@Service
+public class StudentService
+{
+	@Autowired
+    private StudentRepository repo;
+    
+    public Student saveStudent(Student student)
+    {
+    	return repo.save(student);
     }
- 
-    public int getId() {
-
-        return id;
-
+    
+    public List<Student> getAllStudents() {
+    	return repo.findAll();
     }
- 
-    public void setId(int id) {
-
-        this.id = id;
-
-    }
- 
-    public String getName() {
-
-        return name;
-
-    }
- 
-    public void setName(String name) {
-
-        this.name = name;
-
-    }
- 
-    public String getEmail() {
-
-        return email;
-
-    }
- 
-    public void setEmail(String email) {
-
-        this.email = email;
-
-    }
- 
-    public String getCourse() {
-
-        return course;
-
-    }
- 
-    public void setCourse(String course) {
-
-        this.course = course;
-
-    }
-
+  
+     public Student getStudentById(int id) {
+    	 return repo.findById(id).orElse(null);
+     }
+     
+     public Student updateStudent(Student student)
+     {
+    	 return repo.save(student);
+     }
+     
+     public String deleteStudent(int id) {
+    	 repo.deleteById(id);
+    	 return "Student deleted";
+     }
+     
 }
+ 
+ 
+ 
+ 
+ 
+ 
  
