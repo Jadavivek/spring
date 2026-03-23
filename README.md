@@ -1,10 +1,12 @@
-package com.seed.repository;
- 
-import org.springframework.data.jpa.repository.JpaRepository;
-import com.seed.entity.Student;
- 
-public interface StudentRepository extends JpaRepository<Student, Integer>
-{
-	
+package com.seed;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SeedApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(SeedApplication.class, args);
+    }
 }
- 
