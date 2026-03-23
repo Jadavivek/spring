@@ -1,96 +1,13 @@
-package com.seed.model;
+package com.seed.repository;
  
-import jakarta.persistence.*;
-
-import jakarta.validation.constraints.*;
+import com.seed.model.Student;
  
-@Entity
-
-public class Student {
+import org.springframework.data.jpa.repository.JpaRepository;
  
-    @Id
-
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    private int id;
+import java.util.List;
  
-    @NotBlank(message="Name required")
+public interface StudentRepository extends JpaRepository<Student, Integer> {
 
-    private String name;
- 
-    @Email
-
-    private String email;
- 
-    private String course;
- 
-    @Lob  // 🔥 important for large data
-
-    @Column(columnDefinition = "LONGBLOB")
-
-    private byte[] image;
- 
-	public int getId() {
-
-		return id;
-
-	}
- 
-	public void setId(int id) {
-
-		this.id = id;
-
-	}
- 
-	public String getName() {
-
-		return name;
-
-	}
- 
-	public void setName(String name) {
-
-		this.name = name;
-
-	}
- 
-	public String getEmail() {
-
-		return email;
-
-	}
- 
-	public void setEmail(String email) {
-
-		this.email = email;
-
-	}
- 
-	public String getCourse() {
-
-		return course;
-
-	}
- 
-	public void setCourse(String course) {
-
-		this.course = course;
-
-	}
- 
-	public byte[] getImage() {
-
-		return image;
-
-	}
- 
-	public void setImage(byte[] image) {
-
-		this.image = image;
-
-	}
- 
-  
 
 }
  
