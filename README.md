@@ -1,6 +1,62 @@
-spring.datasource.url=jdbc:mysql://localhost:3306/soham
-spring.datasource.username=root
-spring.datasource.password=root
-spring.jpa.hibernate.ddl-auto=create
-spring.jpa.show-sql=true
-spring.jpa.properties.hibernate.format_sql=true
+package com.seed.controller;
+ 
+import java.util.List;
+ 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+import com.seed.entity.*;
+import com.seed.service.StudentService;
+ 
+@RestController
+public class StudentController {
+ 
+	@Autowired
+	private StudentService service;
+	
+   @GetMapping("/students")
+   public List<Student> getAllStudents()
+   {
+	   return service.getAllStudents();
+   }
+   
+   
+   @PostMapping("/register")
+   public Student registerStudent(@RequestBody Student student)
+   {
+	   return service.saveStudent(student);
+   }
+   
+   @GetMapping("/student/{id}")
+   public Student getStudent(@PathVariable int id)
+   {
+	   return service.getStudentById(id);
+   }
+   
+   @PutMapping("/update")
+   public Student updateStudent(@RequestBody Student student)
+   {
+	   return service.updateStudent(student);
+   }
+   
+   @DeleteMapping("/delete/{id}")
+   public String deleteStudent(@PathVariable int id)
+   {
+	   return service.deleteStudent(id);
+   }
+   
+}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
