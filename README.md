@@ -1,30 +1,96 @@
-package com.seed.controller;
+package com.seed.model;
  
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import jakarta.persistence.*;
+
+import jakarta.validation.constraints.*;
  
-import com.seed.repository.StudentRepository;
+@Entity
+
+public class Student {
  
-import jakarta.servlet.http.HttpSession;
+    @Id
+
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    private int id;
  
-@Controller
-public class StudentController {
+    @NotBlank(message="Name required")
+
+    private String name;
  
-	@Autowired
-	private StudentRepository repo;
-	
-   @GetMapping("/")
-   public String list(HttpSession session, Model model)
-   {
-	   if(session.getAttribute("user")==null) {
-		   return "redirect:/login";
-	   }
-	   
-	   model.addAttribute("students",repo.findAll());
-	   return "list";
-	   
-   }
+    @Email
+
+    private String email;
+ 
+    private String course;
+ 
+    @Lob  // 🔥 important for large data
+
+    @Column(columnDefinition = "LONGBLOB")
+
+    private byte[] image;
+ 
+	public int getId() {
+
+		return id;
+
+	}
+ 
+	public void setId(int id) {
+
+		this.id = id;
+
+	}
+ 
+	public String getName() {
+
+		return name;
+
+	}
+ 
+	public void setName(String name) {
+
+		this.name = name;
+
+	}
+ 
+	public String getEmail() {
+
+		return email;
+
+	}
+ 
+	public void setEmail(String email) {
+
+		this.email = email;
+
+	}
+ 
+	public String getCourse() {
+
+		return course;
+
+	}
+ 
+	public void setCourse(String course) {
+
+		this.course = course;
+
+	}
+ 
+	public byte[] getImage() {
+
+		return image;
+
+	}
+ 
+	public void setImage(byte[] image) {
+
+		this.image = image;
+
+	}
+ 
+  
+
 }
  
